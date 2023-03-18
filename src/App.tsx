@@ -40,16 +40,20 @@ export default function App() {
 
   return (
     <div className='App'>
-      <ol>
-        {users.map((user) => {
-          return (
-            <li key={user.ID}>
-              {user.ID}
-              {user.FirstNameLastName}
-            </li>
-          )
-        })}
-      </ol>
+      {typeof users === 'string' ? (
+        <div>{users}</div>
+      ) : (
+        <ol>
+          {users.map((user) => {
+            return (
+              <li key={user.ID}>
+                {user.ID}
+                {user.FirstNameLastName}
+              </li>
+            )
+          })}
+        </ol>
+      )}
       <button
         onClick={() => setPageNum((prev) => prev - 1)}
         disabled={pageNum < 1}
@@ -57,7 +61,6 @@ export default function App() {
         Previous
       </button>
       <input value={pageNum} onChange={(e) => handleChange(e)}></input>
-
       <button onClick={() => setPageNum((prev) => prev + 1)}>Next</button>
     </div>
   )

@@ -43,16 +43,30 @@ export default function App() {
       {typeof users === 'string' ? (
         <div>{users}</div>
       ) : (
-        <ol>
-          {users.map((user) => {
-            return (
-              <li key={user.ID}>
-                {user.ID}
-                {user.FirstNameLastName}
-              </li>
-            )
-          })}
-        </ol>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Job Title</th>
+              <th>Email</th>
+              <th>Company</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user) => {
+              return (
+                <tr key={user.ID}>
+                  <td>{user.FirstNameLastName}</td>
+                  <td>{user.JobTitle}</td>
+                  <td>{user.Email}</td>
+                  <td>{user.Company}</td>
+                  <td>{user.Phone}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
       )}
       <button
         onClick={() => setPageNum((prev) => prev - 1)}

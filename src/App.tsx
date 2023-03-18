@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
-import UserTable from './components/UserTable'
+import Button from './components/Button/Button'
+import UserTable from './components/UserTable/UserTable'
 
 export interface User {
   ID: string
@@ -46,24 +47,24 @@ export default function App() {
       ) : (
         <UserTable users={users} />
       )}
-      <button
+      <Button
         className='prev-btn'
         onClick={() => setPageNum((prev) => prev - 1)}
         disabled={pageNum < 1}
       >
         Previous
-      </button>
+      </Button>
       <input
         className='page-input'
         value={pageNum}
         onChange={(e) => handleChange(e)}
       ></input>
-      <button
+      <Button
         className='next-btn'
         onClick={() => setPageNum((prev) => prev + 1)}
       >
         Next
-      </button>
+      </Button>
     </div>
   )
 }

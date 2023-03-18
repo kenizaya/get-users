@@ -45,6 +45,14 @@ export default function App() {
           )
         })}
       </ol>
+      <button
+        onClick={() => setPageNum((prev) => prev - 1)}
+        disabled={pageNum < 1}
+      >
+        Previous
+      </button>
+
+      <button onClick={() => setPageNum((prev) => prev + 1)}>Next</button>
     </div>
   )
 }

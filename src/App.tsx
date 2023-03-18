@@ -33,6 +33,11 @@ export default function App() {
     getUsers(pageNum - 1)
   }, [pageNum])
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+    setPageNum(value === '' ? 0 : parseInt(value))
+  }
+
   return (
     <div className='App'>
       <ol>
@@ -51,6 +56,7 @@ export default function App() {
       >
         Previous
       </button>
+      <input value={pageNum} onChange={(e) => handleChange(e)}></input>
 
       <button onClick={() => setPageNum((prev) => prev + 1)}>Next</button>
     </div>

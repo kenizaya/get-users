@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface User {
+  ID: string
+  JobTitle: string
+  EmailAddress: string
+  FirstNameLastName: string
+  Email: string
+  Phone: string
+  Company: string
 }
 
-export default App;
+export default function App() {
+  const [users, setUsers] = React.useState<User[]>([])
+  const [pageNum, setPageNum] = React.useState(1)
+
+  React.useEffect(() => {
+    const getUsers = async (num = 0) => {
+      try {
+        const response = await fetch(
+          `https://give-me-users-forever.vercel.app/api/users/${num}/next`
+        )
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        setUsers(data.users)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    getUsers(pageNum - 1)
+  }, [pageNum])
+
+  return (
+    <div className='App'>
+      <ol>
+        {users.map((user) => {
+          return (
+            <li key={user.ID}>
+              {user.ID}
+              {user.FirstNameLastName}
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  )
+}

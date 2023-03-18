@@ -1,7 +1,8 @@
 import React from 'react'
 import './App.css'
+import UserTable from './components/UserTable'
 
-interface User {
+export interface User {
   ID: string
   JobTitle: string
   EmailAddress: string
@@ -41,41 +42,28 @@ export default function App() {
   return (
     <div className='App'>
       {typeof users === 'string' ? (
-        <div>{users}</div>
+        <div className='error'>{users}</div>
       ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Job Title</th>
-              <th>Email</th>
-              <th>Company</th>
-              <th>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => {
-              return (
-                <tr key={user.ID}>
-                  <td>{user.FirstNameLastName}</td>
-                  <td>{user.JobTitle}</td>
-                  <td>{user.Email}</td>
-                  <td>{user.Company}</td>
-                  <td>{user.Phone}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        <UserTable users={users} />
       )}
       <button
+        className='prev-btn'
         onClick={() => setPageNum((prev) => prev - 1)}
         disabled={pageNum < 1}
       >
         Previous
       </button>
-      <input value={pageNum} onChange={(e) => handleChange(e)}></input>
-      <button onClick={() => setPageNum((prev) => prev + 1)}>Next</button>
+      <input
+        className='page-input'
+        value={pageNum}
+        onChange={(e) => handleChange(e)}
+      ></input>
+      <button
+        className='next-btn'
+        onClick={() => setPageNum((prev) => prev + 1)}
+      >
+        Next
+      </button>
     </div>
   )
 }

@@ -6,7 +6,7 @@
   text-decoration: none;
   cursor: pointer;
   font-size: 0.85rem;
-  border: 2px solid #bcccdc;
+  border: 1px solid #bcccdc;
 }
 
 .btn:hover {

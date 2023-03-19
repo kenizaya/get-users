@@ -79,7 +79,7 @@ export default function App() {
           {'<'}
         </Button>
         <input
-          className='page-input'
+          className={styles['page-input']}
           value={pageNum}
           onChange={(e) => handleChange(e)}
         ></input>

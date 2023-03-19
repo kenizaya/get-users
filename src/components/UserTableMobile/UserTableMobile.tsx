@@ -7,7 +7,7 @@ const UserTableMobile = ({ users }: { users: User[] }) => {
     <>
       {users.map((user) => {
         return (
-          <div className={styles.container}>
+          <div className={styles.container} key={user.ID}>
             <div className={styles.row}>
               <h3>Name</h3>
               <p>{user.FirstNameLastName}</p>

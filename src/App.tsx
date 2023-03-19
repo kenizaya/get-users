@@ -39,7 +39,7 @@ export default function App() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
-    setPageNum(value === '' ? 0 : parseInt(value))
+    setPageNum(value === '' ? 1 : parseInt(value))
   }
 
   const handleWindowSizeChange = () => {
@@ -64,7 +64,15 @@ export default function App() {
       ) : (
         <div className={styles['table-container']}>
           {typeof users === 'string' ? (
-            <div className='error'>{users}</div>
+            <div className={styles['error']}>
+              {users}
+              <Button
+                className={styles['btn-back']}
+                onClick={() => setPageNum(1)}
+              >
+                Take me back
+              </Button>
+            </div>
           ) : (
             <UserTable users={users} />
           )}
@@ -74,7 +82,7 @@ export default function App() {
         <Button
           className='prev-btn'
           onClick={() => setPageNum((prev) => prev - 1)}
-          disabled={pageNum < 1}
+          disabled={pageNum <= 1}
         >
           {'<'}
         </Button>

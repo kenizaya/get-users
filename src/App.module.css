@@ -36,6 +36,24 @@
   border: 1px solid #bcccdc;
 }
 
+.error {
+  height: 500px;
+  width: 1024px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn-back {
+  text-transform: uppercase;
+  letter-spacing: 0.18ch;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
 .page-input:hover {
   background-color: #9fb3c8;
 }

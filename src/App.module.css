@@ -61,10 +61,6 @@
   font-weight: bold;
 }
 
-.table-container {
-  background-color: white;
-}
-
 @media (max-width: 1000px) {
   .title {
     font-size: 3rem;

@@ -2,12 +2,11 @@
   width: 100%;
   border: 1px solid #f9f9f9;
   border-radius: 8px;
-  margin: 20px;
+  margin: 20px 0;
   font-size: 0.85rem;
   letter-spacing: 0.025ch;
   color: #102a43;
-  background-color: white;
-  margin-bottom: 0px;
+  background-color: #ffffff;
 }
 
 .container h3 {

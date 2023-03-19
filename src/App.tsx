@@ -59,25 +59,24 @@ export default function App() {
         <h1 className={styles.title}>Users</h1>
       </div>
 
-      {showMobile ? (
-        <UserTableMobile users={users} />
-      ) : (
-        <div className={styles['table-container']}>
-          {typeof users === 'string' ? (
-            <div className={styles['error']}>
-              {users}
-              <Button
-                className={styles['btn-back']}
-                onClick={() => setPageNum(1)}
-              >
-                Take me back
-              </Button>
-            </div>
-          ) : (
-            <UserTable users={users} />
-          )}
-        </div>
-      )}
+      <div className={styles['table-container']}>
+        {typeof users === 'string' ? (
+          <div className={styles['error']}>
+            {users}
+            <Button
+              className={styles['btn-back']}
+              onClick={() => setPageNum(1)}
+            >
+              Take me back
+            </Button>
+          </div>
+        ) : showMobile ? (
+          <UserTableMobile users={users} />
+        ) : (
+          <UserTable users={users} />
+        )}
+      </div>
+
       <div className={styles['btn-wrapper']}>
         <Button
           className='prev-btn'

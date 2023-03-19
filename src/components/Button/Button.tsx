@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Button.module.css'
 
 interface ButtonProps {
   onClick?: () => void
@@ -9,7 +10,11 @@ interface ButtonProps {
 
 const Button = ({ onClick, className, disabled, children }: ButtonProps) => {
   return (
-    <button className={className} onClick={onClick} disabled={disabled}>
+    <button
+      className={`${styles.btn} ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   )

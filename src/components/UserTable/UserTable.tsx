@@ -6,7 +6,7 @@ const UserTable = ({ users }: { users: User[] }) => {
   return (
     <table className={styles['users-table']}>
       <thead>
-        <tr>
+        <tr className={styles.tr}>
           <th className={styles['name-col']}>Name</th>
           <th className={styles['job-col']}>Job Title</th>
           <th className={styles['email-col']}>Email</th>

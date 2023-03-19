@@ -1,6 +1,40 @@
 .app {
   flex-direction: column;
-  background-color: white;
   border-radius: 8px;
-  width: 1024px;
+  padding: 20px;
+  max-width: 1024px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 150px;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #102a43;
+  letter-spacing: 0.5px;
+}
+
+.table-container {
+  background-color: white;
+}
+
+@media (max-width: 948px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .title-container {
+    height: 100px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
 }

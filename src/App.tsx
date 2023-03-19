@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.module.css'
+import styles from './App.module.css'
 import Button from './components/Button/Button'
 import UserTable from './components/UserTable/UserTable'
 
@@ -16,6 +16,7 @@ export interface User {
 export default function App() {
   const [users, setUsers] = React.useState<User[]>([])
   const [pageNum, setPageNum] = React.useState(1)
+  const [width, setWidth] = useState<number>(window.innerWidth)
 
   React.useEffect(() => {
     const getUsers = async (num = 0) => {
@@ -40,14 +41,32 @@ export default function App() {
     setPageNum(value === '' ? 0 : parseInt(value))
   }
 
+  const handleWindowSizeChange = () => {
+    setWidth(window.innerWidth)
+  }
+  React.useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange)
+    }
+  }, [])
+
+  const isMobile = width <= 768
+
   return (
-    <div className='App'>
-      <h1>Users</h1>
-      {typeof users === 'string' ? (
-        <div className='error'>{users}</div>
-      ) : (
-        <UserTable users={users} />
-      )}
+    <div className={styles.app}>
+      <div className={styles['title-container']}>
+        <h1 className={styles.title}>Users</h1>
+      </div>
+
+      <div className={styles['table-container']}>
+        {typeof users === 'string' ? (
+          <div className='error'>{users}</div>
+        ) : (
+          <UserTable users={users} />
+        )}
+      </div>
+
       <Button
         className='prev-btn'
         onClick={() => setPageNum((prev) => prev - 1)}

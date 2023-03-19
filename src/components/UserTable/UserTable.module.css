@@ -56,3 +56,33 @@
   color: #606060;
   letter-spacing: 0.1ch;
 }
+
+@media (max-width: 948px) {
+  .users-table {
+    border-radius: 0;
+  }
+
+  .users-table th,
+  .users-table td {
+    padding: 10px 5px;
+  }
+
+  .users-table th {
+    font-size: 0.7rem;
+  }
+
+  .users-table tr {
+    font-size: 0.8rem;
+  }
+
+  .name-col,
+  .email-col,
+  .company-col,
+  .phone-col {
+    width: 100%;
+  }
+
+  .job {
+    font-size: 0.75rem;
+  }
+}

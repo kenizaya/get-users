@@ -1,16 +1,17 @@
 import React from 'react'
 import { User } from '../../App'
+import styles from './UserTable.module.css'
 
 const UserTable = ({ users }: { users: User[] }) => {
   return (
-    <table className='users-table'>
+    <table className={styles['users-table']}>
       <thead>
         <tr>
-          <th className='name-col'>Name</th>
-          <th className='job-col'>Job Title</th>
-          <th className='email-col'>Email</th>
-          <th className='company-col'>Company</th>
-          <th className='phone-col'>Phone</th>
+          <th className={styles['name-col']}>Name</th>
+          <th className={styles['job-col']}>Job Title</th>
+          <th className={styles['email-col']}>Email</th>
+          <th className={styles['company-col']}>Company</th>
+          <th className={styles['phone-col']}>Phone</th>
         </tr>
       </thead>
       <tbody>

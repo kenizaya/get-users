@@ -70,25 +70,26 @@ export default function App() {
           )}
         </div>
       )}
-
-      <Button
-        className='prev-btn'
-        onClick={() => setPageNum((prev) => prev - 1)}
-        disabled={pageNum < 1}
-      >
-        Previous
-      </Button>
-      <input
-        className='page-input'
-        value={pageNum}
-        onChange={(e) => handleChange(e)}
-      ></input>
-      <Button
-        className='next-btn'
-        onClick={() => setPageNum((prev) => prev + 1)}
-      >
-        Next
-      </Button>
+      <div className={styles['btn-wrapper']}>
+        <Button
+          className='prev-btn'
+          onClick={() => setPageNum((prev) => prev - 1)}
+          disabled={pageNum < 1}
+        >
+          {'<'}
+        </Button>
+        <input
+          className='page-input'
+          value={pageNum}
+          onChange={(e) => handleChange(e)}
+        ></input>
+        <Button
+          className='next-btn'
+          onClick={() => setPageNum((prev) => prev + 1)}
+        >
+          {'>'}
+        </Button>
+      </div>
     </div>
   )
 }

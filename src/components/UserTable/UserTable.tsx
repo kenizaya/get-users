@@ -7,10 +7,11 @@ const UserTable = ({ users }: { users: User[] }) => {
     <table className={styles['users-table']}>
       <thead>
         <tr className={styles.tr}>
-          <th className={styles['name-col']}>Name</th>
-          <th className={styles['job-col']}>Job Title</th>
-          <th className={styles['email-col']}>Email</th>
+          <th colSpan={2} className={styles['name-col']}>
+            Name
+          </th>
           <th className={styles['company-col']}>Company</th>
+          <th className={styles['email-col']}>Email</th>
           <th className={styles['phone-col']}>Phone</th>
         </tr>
       </thead>
@@ -18,10 +19,13 @@ const UserTable = ({ users }: { users: User[] }) => {
         {users.map((user) => {
           return (
             <tr key={user.ID}>
-              <td>{user.FirstNameLastName}</td>
-              <td>{user.JobTitle}</td>
-              <td>{user.Email}</td>
+              <td colSpan={2}>
+                {user.FirstNameLastName}
+                <br />
+                <span className={styles['job']}>{user.JobTitle}</span>
+              </td>
               <td>{user.Company}</td>
+              <td>{user.Email}</td>
               <td>{user.Phone}</td>
             </tr>
           )

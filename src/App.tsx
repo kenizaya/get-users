@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './App.module.css'
 import Button from './components/Button/Button'
 import UserTable from './components/UserTable/UserTable'
 
@@ -42,6 +42,7 @@ export default function App() {
 
   return (
     <div className='App'>
+      <h1>Users</h1>
       {typeof users === 'string' ? (
         <div className='error'>{users}</div>
       ) : (

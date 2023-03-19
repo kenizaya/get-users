@@ -34,6 +34,11 @@
   cursor: pointer;
   font-size: 0.85rem;
   border: 1px solid #bcccdc;
+  text-align: center;
+}
+
+.page-input:hover {
+  background-color: #9fb3c8;
 }
 
 .error {
@@ -47,15 +52,17 @@
   gap: 20px;
 }
 
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn-back {
   text-transform: uppercase;
   letter-spacing: 0.18ch;
   font-size: 0.75rem;
   font-weight: bold;
-}
-
-.page-input:hover {
-  background-color: #9fb3c8;
 }
 
 .table-container {
